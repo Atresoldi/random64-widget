@@ -58,10 +58,10 @@
 </head>
 <body>
   <div class="wrap" role="application" aria-labelledby="title">
-    <h1 id="title">Pensa ad una domanda e quando sei pronto clicca qui sotto</h1>
+    <h1 id="title">Pensa ad una domanda</h1>
       <button id="btn"> Risposta</button>
 
-    <div id="output" aria-live="polite">Premi "Mostra risposta".</div>
+    <div id="output" aria-live="polite">Se sei pronto premi "Risposta".</div>
   </div>
 
   <script>
@@ -70,13 +70,20 @@
       const risposte = [
         "Decisamente sì.","Ovviamente no.","Forse. Riprova domani.","Dipende dalla tua capacità di decisione.",
         "Chiedi più tardi, quando avrai novità","Direi di sì!","Assolutamente no.","Probabilmente sì.",
-        "Improbabile.","Non ci conterei.","Sembra di sì.","Meglio non raccontarlo in giro.","Può darsi.","Non ne sei sicuro?","È possibile.","Senza dubbio!",
-        "Con molta probabilità.","Poco probabile.","Sì, ma non subito.","Forse domani.","Aspetta ancora un po'.","È una buona idea.","Meglio lasciar perdere.",
-        "Non ora.","Sì, se ci credi.","Solo se sei pronto.","Dipende dalle circostanze.","No, non adesso.","Sì, ma con cautela.","Probabilmente no.",
-        "Impossibile.","Quasi certo.","Non ancora.","Presto.","Senza esitazione.","Meglio rifletterci.","Sì, se lo desideri.","Ci sono buone possibilità.",
-        "Non sembra il momento giusto.","Potrebbe funzionare.","Non questa volta.","È scritto nelle stelle.","Non è scritto.","Lascia che accada.","Agisci subito!",
-        "Attendi un segnale.","Segui il tuo istinto, domani!.","Chiedi consiglio a chi te lo può dare.","Non dubitare.","Tutto indica di sì.","Tutto indica di no.","Non ne vale la pena.",
-        "Vale la pena tentare.","La risposta te la darà una persona fidata.","Fidati del tuo cuore.","Meglio non forzare.","Non ti conviene.","Sii paziente.","Sì, con aiuto.",
+        "Improbabile.","Non ci conterei.","Sembra di sì.","Meglio non chiedere in giro. Decidi tu.","Può darsi.",
+        "Non ne sei sicuro? Aspetta quanto puoi.","È possibile.","Senza dubbio!",
+        "Con molta probabilità.","Poco probabile.","Sì, ma non subito.","Forse domani.","Aspetta ancora un po'.",
+        "È una buona idea.","Meglio lasciar perdere.",
+        "Non ora.","Sì, se ci credi.","Solo se sei pronto.","Dipende dalle circostanze.","No, non adesso.",
+        "Sì, ma con cautela.","Probabilmente no.",
+        "Impossibile.","Quasi certo.","Non ancora.","Presto.","Senza esitazione.","Meglio rifletterci.",
+        "Sì, se lo desideri.","Ci sono buone possibilità.",
+        "Non sembra il momento giusto.","Potrebbe funzionare.",
+        "Non questa volta.","È scritto nelle stelle.","Non è scritto.","Lascia che accada.","Agisci subito!",
+        "Attendi un segnale.","Segui il tuo istinto, domani!.","Chiedi consiglio a chi te lo può dare.",
+        "Non dubitare.","Tutto indica di sì.","Tutto indica di no.","Non ne vale la pena.",
+        "Vale la pena tentare.","La risposta te la darà una persona fidata.","Fidati del tuo cuore.","Meglio non forzare.",
+        "Non ti conviene.","Sii paziente.","Sì, con aiuto.",
         "Ti sorprenderà.","Ci vuole tempo.","Forse più avanti.","Non promettente.","Seguirà una sorpresa.","Assolutamente sì."
       ];
       // --- fine array ---
