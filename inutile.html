@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risposta casuale 64</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fafafa;
+      padding-top: 50px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      background-color: #0078D7;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #risposta {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      min-height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Domanda del giorno</h2>
+  <button onclick="daiRisposta()">Chiedi</button>
+  <div id="risposta"></div>
+
+  <script>
+    const risposte = [
+      "Sì", "No", "Forse", "Chissà", "Prova ancora", "Meglio di no",
+      "Certamente", "Mai dire mai", "Ritenta", "Attendi", "Non oggi",
+      "Buona idea", "Pessima idea", "Segui il cuore", "Non adesso",
+      "Aspetta domani", "Sicuramente", "Dubita", "Fidati", "Rilassati",
+      "Chiedi più tardi", "Concentrati", "Non è il momento", "Sorridi",
+      "Perché no?", "Rifletti bene", "Non insistere", "Segui l’istinto",
+      "Non ascoltare nessuno", "Guarda meglio", "Abbi pazienza",
+      "Rinuncia", "È troppo tardi", "È troppo presto", "Sii prudente",
+      "Sii coraggioso", "Ignora i dubbi", "Non aver paura", "Aspetta",
+      "Agisci subito", "Abbi fede", "Non cambiare nulla", "Ricomincia",
+      "Chiudi gli occhi", "Apri la mente", "Non serve sapere",
+      "Tutto è possibile", "Nulla è certo", "Ridi di più",
+      "Piangi se serve", "Torna indietro", "Vai avanti", "Chiedi aiuto",
+      "Fidati di te", "Non oggi", "Non domani", "Sempre", "Mai",
+      "Segreto", "Silenzio", "Osserva meglio", "Riposa", "Sogna", "Agisci",
+      "Cambia strada", "Torna al punto di partenza"
+    ];
+
+    let clickCount = 0;
+
+    function daiRisposta() {
+      clickCount++;
+      let risposta;
+
+      if (clickCount > 2) {
+        risposta = "Inutile insistere";
+      } else {
+        const randomIndex = Math.floor(Math.random() * risposte.length);
+        risposta = risposte[randomIndex];
+      }
+
+      document.getElementById("risposta").textContent = risposta;
+    }
+  </script>
+
+</body>
+</html>
+
