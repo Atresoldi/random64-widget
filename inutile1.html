@@ -58,7 +58,6 @@
       "36 - Aspetta, siediti e respira",
       "37 - Agisci subito", "38 - Abbi fiducia", "39 - Non cambiare nulla", 
       "40 - Ricominciare è necessario",
-      
       "Sì", "No", "Forse", "Chissà", "Prova ancora", "Meglio di no",
       "Certamente", "Mai dire mai", "Ritenta", "Attendi", "Non oggi",
       "Buona idea", "Pessima idea", "Segui il cuore", "Non adesso",
@@ -84,7 +83,7 @@
       let risposta;
 
       if (clickCount > 3) {
-        risposta = "Inutile insistere. Rifletti sulle risposte ottenute. Chiudi il programma e ritenta tra un po'.";
+        risposta = "Inutile insistere. <br />Rifletti sulle risposte ottenute. <br />Chiudi il programma e ritenta tra un po'.";
       } else {
         const randomIndex = Math.floor(Math.random() * risposte.length);
         risposta = risposte[randomIndex];
