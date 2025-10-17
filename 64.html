@@ -87,7 +87,22 @@
         "Ti sorprenderà.","Ci vuole tempo.","Forse più avanti.","Non promettente.","Seguirà una sorpresa.","Assolutamente sì."
       ];
       // --- fine array ---
+ let clickCount = 0;
 
+    function daiRisposta() {
+      clickCount++;
+      let risposta;
+
+      if (clickCount > 3) {
+        risposta = "Inutile insistere. Rifletti invece sulle risposte ottenute. 
+          Se vuoi ricominciare, chiudi il programma e poi riapri";
+      } else {
+        const randomIndex = Math.floor(Math.random() * risposte.length);
+        risposta = risposte[randomIndex];
+      }
+
+      document.getElementById("risposta").textContent = risposta;
+    }
       const btn = document.getElementById('btn');
       const out = document.getElementById('output');
 
