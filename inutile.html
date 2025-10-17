@@ -41,11 +41,12 @@
   <script>
     const risposte = [
       "1 - Sì", 
-      "2 - No", "3 - Forse. Se puoi, aspetta.", "4 - Chissà. Nulla è deciso.", "5 - Riformula la tua domanda e poi riprova.", "Meglio di no",
+      "2 - No", "3 - Forse. Se puoi, aspetta.", "4 - Chissà. Nulla è deciso.", "5 - Riformula la tua domanda e poi riprova.", 
       "6 - Certamente", "7 - Mai dire mai", "8 - Devi tentare anche senza sapere come andrà", "9 - Attendi! Dormici sopra.", 
       "10 - Non oggi",
       "11 - Buona idea", "12 - Pessima idea", "13 - Il tuo cuore sa già cosa devi fare", "14 - Non adesso",
-      "15 - Aspetta domani", "16 - Sicuramente", "17- Dubita dei tuoi pensieri", "18 - Fidati", "19 - Rilassati, hai tempo e non è urgente",
+      "15 - Aspetta domani", "16 - Sicuramente", 
+      "17- Dubita dei tuoi pensieri", "18 - Fidati", "19 - Rilassati, hai tempo e non è urgente",
       "20 - Chiedi più tardi", "21 - Concentrati solo sullo scopo", "22 - Non è il momento, sei da solo", 
       "23 - Sorridi e poi decidi",
       "24 - Perché no?", "25 - Rifletti bene sulle conseguenze per chi ti è vicino", "26 - Non insistere", 
@@ -66,7 +67,7 @@
       "52 - In questi casi: sempre", "53 - Mai, non devi farlo mai",
       "54 - Segreto. Questa è la chiave", "55 - Silenzio con tutti", "56 - Osserva meglio chi ti sta attorno", 
       "57 - Meglio riposare", "58 - Sognare può essere lo stimolo giusto", "59 - Agisci subito",
-      "60 - Cambia strada", "61 - Torna al punto di partenza" "62 - È scritto nelle stelle.",
+      "60 - Cambia strada", "61 - Torna al punto di partenza", "62 - È scritto nelle stelle.",
       "63 - Il futuro non è ancora scritto", "64 - Attendi un segno.", 65 - "Segui la logica.",
       "66 - Rifletti e dopo chiedi consiglio.", "67 - Non dubitare di chi ti vuole aiutare.",
       "68 - Le indicazioni sono positive.", "69 -  Le indicazioni sono negative.",
@@ -81,7 +82,8 @@
       let risposta;
 
       if (clickCount > 3) {
-        risposta = "Inutile insistere. Rifletti invece sulle risposte ottenute. Se vuoi ricominciare, chiudi il programma e poi riapri";
+        risposta = "Inutile insistere. Rifletti invece sulle risposte ottenute. 
+          Se vuoi ricominciare, chiudi il programma e poi riapri";
       } else {
         const randomIndex = Math.floor(Math.random() * risposte.length);
         risposta = risposte[randomIndex];
