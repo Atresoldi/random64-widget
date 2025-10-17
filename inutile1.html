@@ -72,23 +72,7 @@
       "66 - Rifletti e dopo chiedi consiglio.", "67 - Non dubitare di chi ti vuole aiutare.",
       "68 - Le indicazioni sono positive.", "69 -  Le indicazioni sono negative.",
       "70 - Il gioco non vale la candela.",
-      "71 - Forse, ma devi tentare.", "72 - Parti!",
-      "Sì", "No", "Forse", "Chissà", "Prova ancora", "Meglio di no",
-      "Certamente", "Mai dire mai", "Ritenta", "Attendi", "Non oggi",
-      "Buona idea", "Pessima idea", "Segui il cuore", "Non adesso",
-      "Aspetta domani", "Sicuramente", "Dubita", "Fidati", "Rilassati",
-      "Chiedi più tardi", "Concentrati", "Non è il momento", "Sorridi",
-      "Perché no?", "Rifletti bene", "Non insistere", "Segui l’istinto",
-      "Non ascoltare nessuno", "Guarda meglio", "Abbi pazienza",
-      "Rinuncia", "È troppo tardi", "È troppo presto", "Sii prudente",
-      "Sii coraggioso", "Ignora i dubbi", "Non aver paura", "Aspetta",
-      "Agisci subito", "Abbi fede", "Non cambiare nulla", "Ricomincia",
-      "Chiudi gli occhi", "Apri la mente", "Non serve sapere",
-      "Tutto è possibile", "Nulla è certo", "Ridi di più",
-      "Piangi se serve", "Torna indietro", "Vai avanti", "Chiedi aiuto",
-      "Fidati di te", "Non oggi", "Non domani", "Sempre", "Mai",
-      "Segreto", "Silenzio", "Osserva meglio", "Riposa", "Sogna", "Agisci",
-      "Cambia strada", "Torna al punto di partenza"
+      "71 - Forse, ma devi tentare.", "72 - Parti!"
     ];
 
     let clickCount = 0;
@@ -98,7 +82,7 @@
       let risposta;
 
       if (clickCount > 3) {
-        risposta = "Non insistere. <br />Rifletti sulle risposte ottenute. <br />Chiudi il programma e ritenta tra un po'.";
+        risposta = "Non insistere". <br />"Rifletti sulle risposte ottenute." <br />"Chiudi il programma e ritenta tra un po'.";
       } else {
         const randomIndex = Math.floor(Math.random() * risposte.length);
         risposta = risposte[randomIndex];
