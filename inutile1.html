@@ -58,6 +58,21 @@
       "36 - Aspetta, siediti e respira",
       "37 - Agisci subito", "38 - Abbi fiducia", "39 - Non cambiare nulla", 
       "40 - Ricominciare è necessario",
+      "41 - Chiudi gli occhi e visualizza cosa può succedere", "42 - Apri la mente", 
+      "42 - Non serve sapere tutto",
+      "43 - Tutto è possibile, ma nulla di tragico", "44 - Nulla è certo, ma non puoi rimanere fermo", 
+      "45 - Ridi di più, vedrai le cose da un altro punto di vista",
+      "46 - Piangere può servire a lasciare andare", "47 - Torna sui tuoi passi", "47 Vai avanti tranquillo", 
+      "48 - Chiedi aiuto", "49 - Fidati di te stesso", "50 - Non oggi", "51 Oggi non domani", 
+      "52 - In questi casi: sempre", "53 - Mai, non devi farlo mai",
+      "54 - Segreto. Questa è la chiave", "55 - Silenzio con tutti", "56 - Osserva meglio chi ti sta attorno", 
+      "57 - Meglio riposare", "58 - Sognare può essere lo stimolo giusto", "59 - Agisci subito",
+      "60 - Cambia strada", "61 - Torna al punto di partenza", "62 - È scritto nelle stelle.",
+      "63 - Il futuro non è ancora scritto", "64 - Attendi un segno.", 65 - "Segui la logica.",
+      "66 - Rifletti e dopo chiedi consiglio.", "67 - Non dubitare di chi ti vuole aiutare.",
+      "68 - Le indicazioni sono positive.", "69 -  Le indicazioni sono negative.",
+      "70 - Il gioco non vale la candela.",
+      "71 - Forse, ma devi tentare.", "72 - Parti!",
       "Sì", "No", "Forse", "Chissà", "Prova ancora", "Meglio di no",
       "Certamente", "Mai dire mai", "Ritenta", "Attendi", "Non oggi",
       "Buona idea", "Pessima idea", "Segui il cuore", "Non adesso",
@@ -83,7 +98,7 @@
       let risposta;
 
       if (clickCount > 3) {
-        risposta = "Inutile insistere. <br />Rifletti sulle risposte ottenute. <br />Chiudi il programma e ritenta tra un po'.";
+        risposta = "Non insistere. <br />Rifletti sulle risposte ottenute. <br />Chiudi il programma e ritenta tra un po'.";
       } else {
         const randomIndex = Math.floor(Math.random() * risposte.length);
         risposta = risposte[randomIndex];
