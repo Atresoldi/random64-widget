@@ -40,22 +40,37 @@
 
   <script>
     const risposte = [
-      "Sì", "No", "Forse", "Chissà", "Prova ancora", "Meglio di no",
-      "Certamente", "Mai dire mai", "Ritenta", "Attendi", "Non oggi",
-      "Buona idea", "Pessima idea", "Segui il cuore", "Non adesso",
-      "Aspetta domani", "Sicuramente", "Dubita", "Fidati", "Rilassati",
-      "Chiedi più tardi", "Concentrati", "Non è il momento", "Sorridi",
-      "Perché no?", "Rifletti bene", "Non insistere", "Segui l’istinto",
-      "Non ascoltare nessuno", "Guarda meglio", "Abbi pazienza",
-      "Rinuncia", "È troppo tardi", "È troppo presto", "Sii prudente",
-      "Sii coraggioso", "Ignora i dubbi", "Non aver paura", "Aspetta",
-      "Agisci subito", "Abbi fede", "Non cambiare nulla", "Ricomincia",
-      "Chiudi gli occhi", "Apri la mente", "Non serve sapere",
-      "Tutto è possibile", "Nulla è certo", "Ridi di più",
-      "Piangi se serve", "Torna indietro", "Vai avanti", "Chiedi aiuto",
-      "Fidati di te", "Non oggi", "Non domani", "Sempre", "Mai",
-      "Segreto", "Silenzio", "Osserva meglio", "Riposa", "Sogna", "Agisci",
-      "Cambia strada", "Torna al punto di partenza"
+      "1 - Sì", "2 - No", "3 - Forse. Se puoi, aspetta.", "4 - Chissà. Nulla è deciso.", "5 - Riformula la tua domanda e poi riprova.", "Meglio di no",
+      "6 - Certamente", "7 - Mai dire mai", "8 - Devi tentare anche senza sapere come andrà", "9 - Attendi! Dormici sopra.", 
+      "10 - Non oggi",
+      "11 - Buona idea", "12 - Pessima idea", "13 - Il tuo cuore sa già cosa devi fare", "14 - Non adesso",
+      "15 - Aspetta domani", "16 - Sicuramente", "17- Dubita dei tuoi pensieri", "18 - Fidati", "19 - Rilassati, hai tempo e non è urgente",
+      "20 - Chiedi più tardi", "21 - Concentrati solo sullo scopo", "22 - Non è il momento, sei da solo", 
+      "23 - Sorridi e poi decidi",
+      "24 - Perché no?", "25 - Rifletti bene sulle conseguenze per chi ti è vicino", "26 - Non insistere", 
+      "27 - Segui l’istinto, a volte è decisivo",
+      "28 - Ascolta tutti, ma decidi tu", "29 -  Devi analizzare meglio", "30 - Abbi pazienza e vedrai la soluzione",
+      "29 - A volte rinunciare è la decisione giusta", "30 - Ormai è troppo tardi", "31 - È troppo presto", 
+      "32 - Vai, ma con molta prudenza",
+      "33 - Sii coraggioso", "34 - Ignora i dubbi dovuti alla paura", "35 - Non aver paura", 
+      "36 - Aspetta, siediti e respira",
+      "37 - Agisci subito", "38 - Abbi fiducia", "39 - Non cambiare nulla", 
+      "40 - Ricominciare è necessario",
+      "41 - Chiudi gli occhi e visualizza cosa può succedere", "42 - Apri la mente", 
+      "42 - Non serve sapere tutto",
+      "43 - Tutto è possibile, ma nulla di tragico", "44 - Nulla è certo, ma non puoi rimanere fermo", 
+      "45 - Ridi di più, vedrai le cose da un altro punto di vista",
+      "46 - Piangere può servire a lasciare andare", "47 - Torna sui tuoi passi", "47 Vai avanti tranquillo", 
+      "48 - Chiedi aiuto", "49 - Fidati di te stesso", "50 - Non oggi", "51 Oggi non domani", 
+      "52 - In questi casi: sempre", "53 - Mai, non devi farlo mai",
+      "54 - Segreto. Questa è la chiave", "55 - Silenzio con tutti", "56 - Osserva meglio chi ti sta attorno", 
+      "57 - Meglio riposare", "58 - Sognare può essere lo stimolo giusto", "59 - Agisci subito",
+      "60 - Cambia strada", "61 - Torna al punto di partenza" "62 - È scritto nelle stelle.",
+      "63 - Il futuro non è ancora scritto", "64 - Attendi un segno.", 65 - "Segui la logica.",
+      "66 - Rifletti e dopo chiedi consiglio.", "67 - Non dubitare di chi ti vuole aiutare.",
+      "68 - Le indicazioni sono positive.", "69 -  Le indicazioni sono negative.",
+      "70 - Il gioco non vale la candela.",
+      "71 - Forse, ma devi tentare.", "72 - Parti!",
     ];
 
     let clickCount = 0;
@@ -64,8 +79,8 @@
       clickCount++;
       let risposta;
 
-      if (clickCount > 2) {
-        risposta = "Inutile insistere";
+      if (clickCount > 3) {
+        risposta = "Inutile insistere. Rifletti invece sulle risposte ottenute. Se vuoi ricominciare, chiudi il programma e poi riapri";
       } else {
         const randomIndex = Math.floor(Math.random() * risposte.length);
         risposta = risposte[randomIndex];
