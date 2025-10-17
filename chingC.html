@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I 64 Esagrammi dell’I Ching</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2e3192, #1bffff);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    button {
+      padding: 14px 30px;
+      background-color: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 18px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    button:hover {
+      background-color: rgba(255,255,255,0.4);
+      transform: scale(1.05);
+    }
+
+    .box {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 25px;
+      width: 90%;
+      max-width: 600px;
+      color: #fff;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .box h2 {
+      margin-top: 0;
+      font-size: 1.6em;
+    }
+
+    .simbolo {
+      font-size: 1.4em;
+      margin: 8px 0;
+      color: #ffebcd;
+    }
+
+    .descrizione {
+      font-size: 1.1em;
+      line-height: 1.5em;
+      margin-top: 10px;
+      color: #e8e8e8;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I Ching – Esagramma Casuale</h1>
+  <button onclick="mostraEsagramma()">Mostra Esagramma</button>
+
+  <div class="box" id="box" style="display:none;">
+    <h2 id="titolo"></h2>
+    <div class="simbolo" id="simbolo"></div>
+    <div class="descrizione" id="descrizione"></div>
+  </div>
+
+  <footer>© 2025 I Ching Random Generator</footer>
+
+  <script>
+    const esagrammi = [
+      {num:1, nome:"Il Creativo", simbolo:"乾 (Qián)", descr:"Energia pura e forza generatrice. Inizio, potere creativo, iniziativa."},
+      {num:2, nome:"Il Ricettivo", simbolo:"坤 (Kūn)", descr:"Accoglienza e adattamento. Passività fertile che genera la forma."},
+      {num:3, nome:"La Difficoltà Iniziale", simbolo:"屯 (Zhūn)", descr:"Ogni inizio è confuso. Serve perseveranza per dare ordine al caos."},
+      {num:4, nome:"La Stoltezza Giovanile", simbolo:"蒙 (Méng)", descr:"Ignoranza che chiede guida. L’apprendimento nasce dalla disciplina."},
+      {num:5, nome:"L’Attesa", simbolo:"需 (Xū)", descr:"Pazienza e fiducia nei tempi giusti. Preparazione prima dell’azione."},
+      {num:6, nome:"La Lite", simbolo:"訟 (Sòng)", descr:"Conflitto e discussione. Meglio ritirarsi che forzare la vittoria."},
+      {num:7, nome:"L’Esercito", simbolo:"師 (Shī)", descr:"Disciplina e ordine. La forza collettiva vince se guidata da saggezza."},
+      {num:8, nome:"La Solidarietà", simbolo:"比 (Bǐ)", descr:"Unione e cooperazione. Lealleanza rafforza il gruppo."},
+      {num:9, nome:"La Forza Domatrice del Piccolo", simbolo:"小畜 (Xiǎo Chù)", descr:"Contenimento e controllo gentile. Avanzare con misura."},
+      {num:10, nome:"Il Procedere", simbolo:"履 (Lǚ)", descr:"Camminare con cautela tra forze potenti. Il rispetto porta sicurezza."},
+      {num:11, nome:"La Pace", simbolo:"泰 (Tài)", descr:"Armonia e equilibrio tra cielo e terra. Tempo di prosperità."},
+      {num:12, nome:"Il Ristagno", simbolo:"否 (Pǐ)", descr:"Blocchi e incomunicabilità. Occorre attendere tempi migliori."},
+      {num:13, nome:"La Comunità con gli Uomini", simbolo:"同人 (Tóng Rén)", descr:"Collaborazione sincera per un fine comune."},
+      {num:14, nome:"Il Possesso Grande", simbolo:"大有 (Dà Yǒu)", descr:"Grande successo e abbondanza, da gestire con umiltà."},
+      {num:15, nome:"La Modestia", simbolo:"謙 (Qiān)", descr:"Forza nella discrezione. L’umiltà attira fiducia e stabilità."},
+      {num:16, nome:"L’Entusiasmo", simbolo:"豫 (Yù)", descr:"Entusiasmo che ispira e muove. Energia da dirigere con saggezza."},
+      {num:17, nome:"Il Seguire", simbolo:"隨 (Suí)", descr:"Seguire il corso naturale porta armonia e successo."},
+      {num:18, nome:"Il Lavoro sul Guasto", simbolo:"蠱 (Gǔ)", descr:"Riparare ciò che è corrotto. Coraggio nel riformare il passato."},
+      {num:19, nome:"L’Avvicinarsi", simbolo:"臨 (Lín)", descr:"Momento favorevole: si riceve attenzione, ma serve misura."},
+      {num:20, nome:"La Contemplazione", simbolo:"觀 (Guān)", descr:"Osservare senza agire. Saggezza attraverso la visione distaccata."},
+      {num:21, nome:"Il Morso che Spezza", simbolo:"噬嗑 (Shì Kè)", descr:"Superare ostacoli con decisione e giustizia."},
+      {num:22, nome:"La Grazia", simbolo:"賁 (Bì)", descr:"Bellezza e forma armoniosa. L’apparenza riflette l’essenza."},
+      {num:23, nome:"Lo Sgretolamento", simbolo:"剝 (Bō)", descr:"Decadimento inevitabile. Saper lasciare andare ciò che finisce."},
+      {num:24, nome:"Il Ritorno", simbolo:"復 (Fù)", descr:"Ogni ciclo si rinnova. Tempo di ripartenza e rinnovamento."},
+      {num:25, nome:"L’Innocenza", simbolo:"無妄 (Wú Wàng)", descr:"Agire con purezza di cuore porta fortuna."},
+      {num:26, nome:"La Forza Domatrice del Grande", simbolo:"大畜 (Dà Chù)", descr:"Autocontrollo e accumulo di energia per grandi imprese."},
+      {num:27, nome:"Gli Angoli della Bocca", simbolo:"頤 (Yí)", descr:"Nutrimento fisico e spirituale. Prendersi cura di sé e degli altri."},
+      {num:28, nome:"La Preponderanza del Grande", simbolo:"大過 (Dà Guò)", descr:"Peso eccessivo da sostenere. Serve forza e integrità."},
+      {num:29, nome:"L’Abisso", simbolo:"坎 (Kǎn)", descr:"Pericolo e difficoltà. Attraversare con coraggio e costanza."},
+      {num:30, nome:"L’Aderente", simbolo:"離 (Lí)", descr:"Chiarezza e luce interiore. Seguire la verità illumina la via."},
+      {num:31, nome:"L’Influsso", simbolo:"咸 (Xián)", descr:"Attrazione e sintonia reciproca. Le emozioni guidano il contatto."},
+      {num:32, nome:"La Durata", simbolo:"恆 (Héng)", descr:"Costanza e coerenza portano stabilità e successo duraturo."},
+      {num:33, nome:"Il Ritirarsi", simbolo:"遯 (Dùn)", descr:"Ritirarsi con dignità preserva la forza interiore."},
+      {num:34, nome:"La Potenza del Grande", simbolo:"大壯 (Dà Zhuàng)", descr:"Energia potente da guidare con giustizia e misura."},
+      {num:35, nome:"Il Progresso", simbolo:"晉 (Jìn)", descr:"Avanzamento rapido e luminoso. Agire con chiarezza."},
+      {num:36, nome:"L’Oscuramento della Luce", simbolo:"明夷 (Míng Yí)", descr:"Nascondere la luce in tempi oscuri preserva la saggezza."},
+      {num:37, nome:"La Famiglia", simbolo:"家人 (Jiā Rén)", descr:"Ordine e rispetto nelle relazioni. L’armonia domestica è fondamento."},
+      {num:38, nome:"L’Opposizione", simbolo:"睽 (Kuí)", descr:"Differenze di vedute. Trovare l’accordo attraverso il rispetto."},
+      {num:39, nome:"L’Ostacolo", simbolo:"蹇 (Jiǎn)", descr:"Fermarsi di fronte a difficoltà è segno di forza e prudenza."},
+      {num:40, nome:"La Liberazione", simbolo:"解 (Xiè)", descr:"Dopo la tensione, il sollievo. Sciogliere i nodi con chiarezza."},
+      {num:41, nome:"La Diminuzione", simbolo:"損 (Sǔn)", descr:"Sacrificio e riduzione volontaria portano equilibrio."},
+      {num:42, nome:"L’Accrescimento", simbolo:"益 (Yì)", descr:"Aumento e progresso. Dare genera abbondanza."},
+      {num:43, nome:"Lo Straripamento", simbolo:"夬 (Guài)", descr:"Decisione ferma contro il male. Azione risoluta."},
+      {num:44, nome:"Venire all’Incontro", simbolo:"姤 (Gòu)", descr:"Incontro improvviso con forze potenti. Serve discernimento."},
+      {num:45, nome:"La Raccolta", simbolo:"萃 (Cuì)", descr:"Unione di persone o risorse. Tempo di coesione."},
+      {num:46, nome:"L’Ascendere", simbolo:"升 (Shēng)", descr:"Crescita graduale e costante. Perseveranza e modestia."},
+      {num:47, nome:"L’Esaurimento", simbolo:"困 (Kùn)", descr:"Stanchezza e vincoli. Resistere con dignità porta rinnovamento."},
+      {num:48, nome:"Il Pozzo", simbolo:"井 (Jǐng)", descr:"Fonte perenne. Rinnovare le radici spirituali."},
+      {num:49, nome:"La Rivoluzione", simbolo:"革 (Gé)", descr:"Trasformazione radicale. Cambiare con chiarezza e coraggio."},
+      {num:50, nome:"Il Crogiolo", simbolo:"鼎 (Dǐng)", descr:"Rinnovamento attraverso il fuoco. Trasformazione interiore."},
+      {num:51, nome:"Il Tuono", simbolo:"震 (Zhèn)", descr:"Scossa improvvisa che risveglia. Il timore diventa energia vitale."},
+      {num:52, nome:"L’Arresto", simbolo:"艮 (Gèn)", descr:"Fermarsi e meditare. Calma interiore come forza stabile."},
+      {num:53, nome:"Lo Sviluppo Graduale", simbolo:"漸 (Jiàn)", descr:"Crescita lenta e sicura. Fedeltà e dedizione."},
+      {num:54, nome:"La Fanciulla che si Sposa", simbolo:"歸妹 (Guī Mèi)", descr:"Unione diseguale. Accettare il proprio posto con grazia."},
+      {num:55, nome:"L’Abbondanza", simbolo:"豐 (Fēng)", descr:"Pienezza e splendore. Riconoscere il proprio momento."},
+      {num:56, nome:"Il Viandante", simbolo:"旅 (Lǚ)", descr:"Vita in movimento. Moderazione e rispetto in terra straniera."},
+      {num:57, nome:"Il Soffio Penetrante", simbolo:"巽 (Xùn)", descr:"Influenza gentile e persistente. La persuasione dolce vince."},
+      {num:58, nome:"Il Sereno", simbolo:"兌 (Duì)", descr:"Gioia e comunicazione sincera. La felicità si diffonde."},
+      {num:59, nome:"La Dissoluzione", simbolo:"渙 (Huàn)", descr:"Scioglimento e liberazione. La chiarezza ricompone l’unità."},
+      {num:60, nome:"La Limitazione", simbolo:"節 (Jié)", descr:"Confini e misura. La libertà nasce dall’autodisciplina."},
+      {num:61, nome:"La Verità Interiore", simbolo:"中孚 (Zhōng Fú)", descr:"Sincerità e fiducia. L’integrità apre tutte le porte."},
+      {num:62, nome:"La Preponderanza del Piccolo", simbolo:"小過 (Xiǎo Guò)", descr:"Piccoli passi prudenti. L’umiltà evita l’errore."},
+      {num:63, nome:"Dopo il Compimento", simbolo:"既濟 (Jì Jì)", descr:"Tutto è in ordine, ma serve vigilanza per non cadere."},
+      {num:64, nome:"Prima del Compimento", simbolo:"未濟 (Wèi Jì)", descr:"Nulla è ancora concluso. Prudenza e adattabilità portano successo."}
+    ];
+
+    function mostraEsagramma() {
+      const idx = Math.floor(Math.random() * esagrammi.length);
+      const e = esagrammi[idx];
+      document.getElementById("titolo").textContent = `Esagramma ${e.num}: ${e.nome}`;
+      document.getElementById("simbolo").textContent = e.simbolo;
+      document.getElementById("descrizione").textContent = e.descr;
+      document.getElementById("box").style.display = "block";
+    }
+  </script>
+</body>
+</html>
+
